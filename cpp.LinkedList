@@ -1,0 +1,24 @@
+#include "LinkedList.h"
+
+void addToList(Node** head, unsigned int value)
+{
+    Node* newNode = new Node;
+    newNode->data = value;
+    newNode->next = *head;
+    *head = newNode;
+}
+
+int removeFromList(Node** head)
+{
+    if (head == nullptr || *head == nullptr)
+    {
+        return -1;
+    }
+
+    Node* temp = *head;
+    int value = temp->data;
+    *head = (*head)->next;
+    delete temp;
+
+    return value;
+}
